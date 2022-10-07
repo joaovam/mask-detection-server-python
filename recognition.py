@@ -7,7 +7,7 @@ MODEL_PATH = "/home/leonardovallem/PycharmProjects/tensorflow-vgg16/trained_mode
 
 model: Optional[Model] = None
 
-classes = ["not wearing mask", "weaking mask"]
+classes = ["not wearing mask", "wearing mask"]
 
 
 def update_model():
