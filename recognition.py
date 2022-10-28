@@ -1,6 +1,6 @@
 from typing import Optional
 
-import cv2
+import cv2 as cv
 import numpy as np
 from numpy.typing import NDArray
 from tensorflow.python.keras.models import load_model, Model
@@ -26,26 +26,36 @@ def detect(data):
     update_model()
     faces = detect_faces(data)
     for face in faces:
+
         #TODO
         #cortar a imagem inicial com base na posicao do rosto
         #adicionar booleano mostrando uso de mascara
         #adicionar credibilidade dessa predição
         #ambas as adições são ao objeto face
+        #alterar retorno de método para um array de faces,
+        # com posição do rosto na imagem e label
 
-        prediction: NDArray = model.predict(data)
+        nparr = np.fromstring(data, np.uint8)
+        img = cv.imdecode(nparr, cv.CV_LOAD_IMAGE_COLOR)  # cv2.IMREAD_COLOR in OpenCV
+        img = img[face.initial_x:face.final_x, face.initial_y:face.final_y]
 
-    return prediction.argmax(-1)[0]
+        prediction: NDArray = model.predict(img)
+        #face.is_using_mask = TODO colocar boolean de acordo com a predicao
+        #face.credibility = TODO adicionar porcentagem de certeza para a predição
+
+
+    return faces #rediction.argmax(-1)[0]
 
 
 def detect_faces(frame):
     print("[INFO] loading face detector model...")
 
-    net = cv2.dnn.readNet("prototxt", "res10_300x300_ssd_iter_140000.caffemodel")
+    net = cv.dnn.readNet("prototxt", "res10_300x300_ssd_iter_140000.caffemodel")
 
     (h, w) = frame.shape[:2]
 
     # construct a blob from the image
-    blob = cv2.dnn.blobFromImage(frame, 1.0, (300, 300),
+    blob = cv.dnn.blobFromImage(frame, 1.0, (300, 300),
                                  (104.0, 177.0, 123.0))
 
     # pass the blob through the network and obtain the face detections
