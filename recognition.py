@@ -33,5 +33,7 @@ def detect(data):
         "This image most likely belongs to {} with a {} percent confidence."
         .format(label, score))
 
-    return json.dumps(dict(label=label, score=score))
+    returnValue = json.dumps(dict(label=label, score=score))
+    print(returnValue)
+    return returnValue
 
