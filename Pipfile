@@ -7,6 +7,7 @@ name = "pypi"
 uvicorn = "*"
 tensorflow-cpu = "*"
 python-socketio = "*"
+websocket = "*"
 
 [dev-packages]
 
