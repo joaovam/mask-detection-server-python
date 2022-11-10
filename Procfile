@@ -1,1 +1,1 @@
-web: uvicorn main:app --host=0.0.0.0 --port=${PORT:-4000} --ws-max-size 0xFFFFFFFF --log-level debug
+web: uvicorn main:app --host=0.0.0.0 --port=${PORT:-4000} --ws-max-size 4294967295 --log-level debug

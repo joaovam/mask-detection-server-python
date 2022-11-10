@@ -34,3 +34,4 @@ def detect(data):
         .format(label, score))
 
     return json.dumps(dict(label=label, score=score))
+
