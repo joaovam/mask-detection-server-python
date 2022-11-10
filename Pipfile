@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 uvicorn = "*"
 tensorflow-cpu = "*"
+python-socketio = "*"
 
 [dev-packages]
 
