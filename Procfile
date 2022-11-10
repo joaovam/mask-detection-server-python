@@ -1,1 +1,1 @@
-web: python main.py
+web: asgi python main.py
