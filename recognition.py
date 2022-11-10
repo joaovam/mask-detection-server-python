@@ -1,8 +1,8 @@
 import json
 from typing import Optional
-from tensorflow-cpu.python.keras.models import load_model, Model
-from tensorflow-cpu.keras.applications.mobilenet_v2 import preprocess_input
-import tensorflow-cpu as tf
+from tensorflow.python.keras.models import load_model, Model
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+import tensorflow as tf
 
 MODEL_PATH = "./trained_model.h5"
 
