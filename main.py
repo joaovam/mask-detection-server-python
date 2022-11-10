@@ -37,4 +37,4 @@ async def frame(sid, img):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, root_path="/", ws_max_size=0xFFFFFFFF)
+    uvicorn.run(app, ws_max_size=0xFFFFFFFF)
