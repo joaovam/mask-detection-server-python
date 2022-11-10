@@ -36,5 +36,4 @@ async def frame(sid, img):
     await io.emit("frame", str(prediction))
 
 
-if __name__ == "__main__":
-    uvicorn.run(app, ws_max_size=0xFFFFFFFF)
+
